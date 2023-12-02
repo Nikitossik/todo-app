@@ -101,6 +101,8 @@
     "yaml": "^2.3.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "webpack serve",
     "build": "webpack",
     "postinstall": "patch-package"
