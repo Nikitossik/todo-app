@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  [type="text"]:focus,
+  [type="email"]:focus,
+  [type="url"]:focus,
+  [type="password"]:focus,
+  [type="number"]:focus,
+  [type="date"]:focus,
+  [type="datetime-local"]:focus,
+  [type="month"]:focus,
+  [type="search"]:focus,
+  [type="tel"]:focus,
+  [type="time"]:focus,
+  [type="week"]:focus,
+  [multiple]:focus,
+  textarea:focus,
+  select:focus {
+    --tw-ring-color: theme("colors.primary.DEFAULT");
+    border-color: var(--tw-ring-color);
+    @apply block min-h-[auto] rounded;
+  }
+  [type="checkbox"],
+  [type="radio"] {
+    cursor: pointer;
+  }
+
+  [type="checkbox"] {
+    @apply rounded-md w-6 h-6 text-dark-400 hover:ring-2 hover:ring-dark-400 border-2 focus:ring-dark-400 transition;
+  }
+
+  .datepicker-input {
+    @apply w-full border-0 bg-transparent cursor-pointer px-3 py-[0.32rem] leading-[1.6] outline-none 
+    transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary-500 
+    data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 
+    dark:placeholder:text-neutral-200 dark:peer-focus:text-primary-500;
+  }
+
+  svg {
+    @apply inline-block;
+  }
+}
+
+@layer components {
+  /*buttons*/
+
+  .button {
+    @apply py-2 px-4 text-sm rounded-md [&>svg]:h-5 [&>svg]:w-5 cursor-pointer bg-secondary-500 hover:bg-secondary-400 text-white disabled:opacity-70 
+    disabled:cursor-not-allowed transition;
+  }
+
+  /*rating*/
+  .rating {
+    @apply my-1 inline-flex list-none gap-1 p-0 text-neutral-400;
+  }
+
+  /*todo*/
+
+  .todo-holder {
+    @apply py-3 border-b-[1px] border-dark-200 cursor-pointer;
+  }
+
+  [data-priority="1"] {
+    --checkbox-color: theme("colors.primary.400");
+  }
+
+  [data-priority="2"] {
+    --checkbox-color: theme("colors.secondary.400");
+  }
+
+  [data-priority="3"] {
+    --checkbox-color: theme("colors.sky.400");
+  }
+
+  [data-priority="4"] {
+    --checkbox-color: theme("colors.neutral.400");
+  }
+
+  .todo-item {
+    @apply relative flex items-start gap-x-3 sm:gap-x-4 gap-y-1;
+  }
+
+  .todo-checkbox {
+    @apply text-[--checkbox-color] hover:border-[--checkbox-color] border-[--checkbox-color] hover:ring-[--checkbox-color]
+    focus:ring-[--checkbox-color];
+  }
+
+  .chip {
+    @apply break-words cursor-pointer inline-flex gap-x-1 rounded-lg 
+    p-1 sm:px-2
+    text-neutral-600 shadow-none transition duration-200 hover:shadow-none;
+  }
+
+  .todo-chip {
+    @apply text-neutral-600 hover:bg-neutral-100 border border-dark-400;
+  }
+
+  [data-todo-expired] .todo-chip[data-todo-property*="end"] {
+    @apply text-red-600 hover:bg-red-100;
+  }
+
+  .chip-close {
+    @apply basis-1 px-2 flex items-center cursor-pointer text-[--chip-text-color] transition-all duration-200 
+    ease-in-out;
+  }
+
+  /*difficulty*/
+
+  .priority-pick {
+    @apply block px-2 py-1 text-neutral-500 hover:bg-neutral-100 transition duration-200 rounded-md;
+  }
+
+  .priority-pick--active {
+    @apply border-[1px] border-neutral-200;
+  }
+
+  .difficulty-rating {
+    @apply text-neutral-500;
+  }
+}
