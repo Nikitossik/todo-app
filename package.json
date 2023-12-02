@@ -102,7 +102,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist -r https://github.com/Nikitossik/todo-app.git",
     "dev": "webpack serve",
     "build": "webpack",
     "postinstall": "patch-package"
